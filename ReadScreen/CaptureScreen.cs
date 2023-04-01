@@ -146,9 +146,27 @@ namespace ReadScreen
                     screenPictureBox.CreateGraphics().DrawRectangle(selectPen, selectX, selectY, selectWidth, selectHeight);
                 }
                 start = false;
-                SaveToClipboard();
+                OpenResultScreenshot();
                 Close();
             }
+        }
+
+        private void OpenResultScreenshot()
+        {
+            this.UpdateStartCordPosRect();
+
+            Rectangle rect = new Rectangle(startPointX, startPointY, Math.Abs(selectWidth), Math.Abs(selectHeight));
+            Bitmap OriginalImage = new Bitmap(screenPictureBox.Image, screenPictureBox.Width, screenPictureBox.Height);
+            Bitmap _img = new Bitmap(Math.Abs(selectWidth), Math.Abs(selectHeight));
+
+            Graphics g = Graphics.FromImage(_img);
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            g.DrawImage(OriginalImage, 0, 0, rect, GraphicsUnit.Pixel);
+
+            CaptureScreenResult captureResult = new CaptureScreenResult((Image)_img);
+            captureResult.Show();
         }
 
         private void screenPictureBox_Click(object sender, EventArgs e) { }

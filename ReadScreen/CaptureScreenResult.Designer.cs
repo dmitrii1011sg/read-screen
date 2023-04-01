@@ -1,0 +1,126 @@
+﻿namespace ReadScreen
+{
+    partial class CaptureScreenResult
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.screenshotBox = new System.Windows.Forms.PictureBox();
+            this.saveImage = new System.Windows.Forms.Button();
+            this.copyImage = new System.Windows.Forms.Button();
+            this.copyText = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.resultText = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.screenshotBox)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // screenshotBox
+            // 
+            this.screenshotBox.Location = new System.Drawing.Point(265, 12);
+            this.screenshotBox.Name = "screenshotBox";
+            this.screenshotBox.Size = new System.Drawing.Size(477, 426);
+            this.screenshotBox.TabIndex = 0;
+            this.screenshotBox.TabStop = false;
+            // 
+            // saveImage
+            // 
+            this.saveImage.Location = new System.Drawing.Point(5, 390);
+            this.saveImage.Name = "saveImage";
+            this.saveImage.Size = new System.Drawing.Size(75, 23);
+            this.saveImage.TabIndex = 1;
+            this.saveImage.Text = "Save Image";
+            this.saveImage.UseVisualStyleBackColor = true;
+            this.saveImage.Click += new System.EventHandler(this.saveImage_Click);
+            // 
+            // copyImage
+            // 
+            this.copyImage.Location = new System.Drawing.Point(86, 390);
+            this.copyImage.Name = "copyImage";
+            this.copyImage.Size = new System.Drawing.Size(75, 23);
+            this.copyImage.TabIndex = 2;
+            this.copyImage.Text = "Copy Image";
+            this.copyImage.UseVisualStyleBackColor = true;
+            this.copyImage.Click += new System.EventHandler(this.copyImage_Click);
+            // 
+            // copyText
+            // 
+            this.copyText.Location = new System.Drawing.Point(167, 390);
+            this.copyText.Name = "copyText";
+            this.copyText.Size = new System.Drawing.Size(75, 23);
+            this.copyText.TabIndex = 3;
+            this.copyText.Text = "Copy Text";
+            this.copyText.UseVisualStyleBackColor = true;
+            this.copyText.Click += new System.EventHandler(this.copyText_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.resultText);
+            this.groupBox1.Controls.Add(this.saveImage);
+            this.groupBox1.Controls.Add(this.copyText);
+            this.groupBox1.Controls.Add(this.copyImage);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(247, 419);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Result";
+            // 
+            // resultText
+            // 
+            this.resultText.Location = new System.Drawing.Point(6, 19);
+            this.resultText.Multiline = true;
+            this.resultText.Name = "resultText";
+            this.resultText.ReadOnly = true;
+            this.resultText.Size = new System.Drawing.Size(235, 365);
+            this.resultText.TabIndex = 4;
+            // 
+            // CaptureScreenResult
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(750, 443);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.screenshotBox);
+            this.Name = "CaptureScreenResult";
+            this.Text = "CaptureScreenResult";
+            ((System.ComponentModel.ISupportInitialize)(this.screenshotBox)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.PictureBox screenshotBox;
+        private System.Windows.Forms.Button saveImage;
+        private System.Windows.Forms.Button copyImage;
+        private System.Windows.Forms.Button copyText;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox resultText;
+    }
+}
