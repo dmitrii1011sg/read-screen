@@ -15,6 +15,42 @@ namespace ReadScreen
         public MainForm()
         {
             InitializeComponent();
+
+            this.WindowState = FormWindowState.Minimized;
+            this.ShowInTaskbar = false;
+
+            copyClipboardCheckBox.Checked = Properties.Settings.Default.sett_copytoclipboard;
+        }
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.Show();
+        }
+
+        private void captureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // CaptureScreen capture = new CaptureScreen();
+            // capture.Show();
+        }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                Hide();
+            }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            notifyiconMain.Visible = true;
         }
     }
 }

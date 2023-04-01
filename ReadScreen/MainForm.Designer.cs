@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.settingsBox = new System.Windows.Forms.GroupBox();
             this.otherGroup = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.copyClipboardCheckBox = new System.Windows.Forms.CheckBox();
             this.doneBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.notifyiconMain = new System.Windows.Forms.NotifyIcon(this.components);
@@ -47,7 +48,7 @@
             // settingsBox
             // 
             this.settingsBox.Controls.Add(this.doneBtn);
-            this.settingsBox.Controls.Add(this.checkBox1);
+            this.settingsBox.Controls.Add(this.copyClipboardCheckBox);
             this.settingsBox.Location = new System.Drawing.Point(12, 12);
             this.settingsBox.Name = "settingsBox";
             this.settingsBox.Size = new System.Drawing.Size(274, 122);
@@ -66,15 +67,15 @@
             this.otherGroup.TabStop = false;
             this.otherGroup.Text = "...";
             // 
-            // checkBox1
+            // copyClipboardCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 58);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(111, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Copy on clipboard";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.copyClipboardCheckBox.AutoSize = true;
+            this.copyClipboardCheckBox.Location = new System.Drawing.Point(6, 58);
+            this.copyClipboardCheckBox.Name = "copyClipboardCheckBox";
+            this.copyClipboardCheckBox.Size = new System.Drawing.Size(111, 17);
+            this.copyClipboardCheckBox.TabIndex = 0;
+            this.copyClipboardCheckBox.Text = "Copy on clipboard";
+            this.copyClipboardCheckBox.UseVisualStyleBackColor = true;
             // 
             // doneBtn
             // 
@@ -96,6 +97,10 @@
             // 
             // notifyiconMain
             // 
+            this.notifyiconMain.BalloonTipText = "Read Screen";
+            this.notifyiconMain.BalloonTipTitle = "Read Screen";
+            this.notifyiconMain.ContextMenuStrip = this.contextMenuStripApp;
+            this.notifyiconMain.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyiconMain.Icon")));
             this.notifyiconMain.Text = "notifyiconMain";
             this.notifyiconMain.Visible = true;
             // 
@@ -113,18 +118,21 @@
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
             this.showToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.showToolStripMenuItem.Text = "Show";
+            this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
             // captureToolStripMenuItem
             // 
             this.captureToolStripMenuItem.Name = "captureToolStripMenuItem";
             this.captureToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.captureToolStripMenuItem.Text = "Capture ";
+            this.captureToolStripMenuItem.Click += new System.EventHandler(this.captureToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.quitToolStripMenuItem.Text = "Quit";
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -135,6 +143,8 @@
             this.Controls.Add(this.settingsBox);
             this.Name = "MainForm";
             this.Text = "ReadScreen";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.settingsBox.ResumeLayout(false);
             this.settingsBox.PerformLayout();
             this.otherGroup.ResumeLayout(false);
@@ -149,7 +159,7 @@
         private System.Windows.Forms.GroupBox settingsBox;
         private System.Windows.Forms.GroupBox otherGroup;
         private System.Windows.Forms.Button doneBtn;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox copyClipboardCheckBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NotifyIcon notifyiconMain;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripApp;

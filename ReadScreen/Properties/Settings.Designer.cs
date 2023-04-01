@@ -26,5 +26,20 @@ namespace ReadScreen.Properties
                 return defaultInstance;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool sett_copytoclipboard
+        {
+            get
+            {
+                return ((bool)(this["sett_copytoclipboard"]));
+            }
+            set
+            {
+                this["sett_copytoclipboard"] = value;
+            }
+        }
     }
 }
