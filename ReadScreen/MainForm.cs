@@ -30,8 +30,8 @@ namespace ReadScreen
 
         private void captureToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // CaptureScreen capture = new CaptureScreen();
-            // capture.Show();
+            CaptureScreen capture = new CaptureScreen();
+            capture.Show();
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
