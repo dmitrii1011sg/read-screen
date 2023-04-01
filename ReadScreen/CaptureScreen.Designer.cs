@@ -36,7 +36,7 @@
             // 
             this.screenPictureBox.Location = new System.Drawing.Point(0, -1);
             this.screenPictureBox.Name = "screenPictureBox";
-            this.screenPictureBox.Size = new System.Drawing.Size(331, 305);
+            this.screenPictureBox.Size = new System.Drawing.Size(328, 305);
             this.screenPictureBox.TabIndex = 0;
             this.screenPictureBox.TabStop = false;
             this.screenPictureBox.Click += new System.EventHandler(this.screenPictureBox_Click);
@@ -48,13 +48,13 @@
             this.ClientSize = new System.Drawing.Size(332, 306);
             this.ControlBox = false;
             this.Controls.Add(this.screenPictureBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "CaptureScreen";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Name = "CaptureScreen";
             this.Text = "CaptureScreen";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CaptureWindowLoad);

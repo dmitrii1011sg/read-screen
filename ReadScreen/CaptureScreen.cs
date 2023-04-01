@@ -16,6 +16,9 @@ namespace ReadScreen
         int selectWidth;
         int selectHeight;
 
+        int startPointX;
+        int startPointY;
+
         public Pen selectPen;
         bool start = false;
 
@@ -25,6 +28,26 @@ namespace ReadScreen
 
             screenPictureBox.MouseDown += new MouseEventHandler(screenPictureBox_MouseDown);
             screenPictureBox.MouseMove += new MouseEventHandler(screenPictureBox_MouseMove);
+        }
+
+        private void UpdateStartCordPosRect()
+        {
+            startPointX = selectX;
+            startPointY = selectY;
+
+            if (selectWidth < 0 & selectHeight < 0)
+            {
+                startPointX = selectX + selectWidth;
+                startPointY = selectY + selectHeight;
+            }
+            else if (selectWidth < 0)
+            {
+                startPointX = selectX + selectWidth;
+            }
+            else if (selectHeight < 0)
+            {
+                startPointY = selectY + selectHeight;
+            }
         }
 
         void CaptureWindowLoad(object sender, EventArgs e)
@@ -49,32 +72,30 @@ namespace ReadScreen
         private void SaveToClipboard()
         {
             string filename = System.IO.Path.GetFileNameWithoutExtension(System.IO.Path.GetRandomFileName()) + ".png";
+            this.UpdateStartCordPosRect();
+            
+            Rectangle rect = new Rectangle(startPointX, startPointY, Math.Abs(selectWidth), Math.Abs(selectHeight));
+            Bitmap OriginalImage = new Bitmap(screenPictureBox.Image, screenPictureBox.Width, screenPictureBox.Height);
+            Bitmap _img = new Bitmap(Math.Abs(selectWidth), Math.Abs(selectHeight));
+            Graphics g = Graphics.FromImage(_img);
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            g.DrawImage(OriginalImage, 0, 0, rect, GraphicsUnit.Pixel);
+            Clipboard.SetImage(_img);
 
-            if (selectWidth > 0)
+            if (Clipboard.ContainsImage() == true)
             {
-                Rectangle rect = new Rectangle(selectX, selectY, selectWidth, selectHeight);
-                Bitmap OriginalImage = new Bitmap(screenPictureBox.Image, screenPictureBox.Width, screenPictureBox.Height);
-                Bitmap _img = new Bitmap(selectWidth, selectHeight);
-                Graphics g = Graphics.FromImage(_img);
-                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-                g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-                g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-                g.DrawImage(OriginalImage, 0, 0, rect, GraphicsUnit.Pixel);
-                Clipboard.SetImage(_img);
-
-                if (Clipboard.ContainsImage() == true)
-                {
-                    Image image = (Image)Clipboard.GetDataObject().GetData(DataFormats.Bitmap);
-                    image.Save(Path.GetTempPath() + filename);
-                }
-                else
-                {
-                    Console.WriteLine("Clipboard empty.");
-                }
-
-                Clipboard.SetImage(_img);
-                Console.Write("Image copied");
+                Image image = (Image)Clipboard.GetDataObject().GetData(DataFormats.Bitmap);
+                image.Save(Path.GetTempPath() + filename);
             }
+            else
+            {
+                Console.WriteLine("Clipboard empty.");
+            }
+
+            Clipboard.SetImage(_img);
+            Console.Write("Image copied");
         }
 
         private void screenPictureBox_MouseMove(object sender, MouseEventArgs e)
@@ -85,7 +106,9 @@ namespace ReadScreen
                 screenPictureBox.Refresh();
                 selectWidth = e.X - selectX;
                 selectHeight = e.Y - selectY;
-                screenPictureBox.CreateGraphics().DrawRectangle(selectPen, selectX, selectY, selectWidth, selectHeight);
+
+                this.UpdateStartCordPosRect();
+                screenPictureBox.CreateGraphics().DrawRectangle(selectPen, startPointX, startPointY, Math.Abs(selectWidth), Math.Abs(selectHeight));
             }
 
         }
@@ -105,8 +128,8 @@ namespace ReadScreen
                     int width = screenPictureBox.Image.Size.Width;
                     int height = screenPictureBox.Image.Size.Height;
 
-                    selectPen = new Pen(Color.Blue, 2);
-                    selectPen.DashStyle = DashStyle.DashDotDot;
+                    selectPen = new Pen(Color.Red, 1);
+                    selectPen.DashStyle = DashStyle.Dash;
                 }
                 screenPictureBox.Refresh();
                 start = true;
