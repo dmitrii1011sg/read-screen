@@ -7,6 +7,8 @@ namespace ReadScreen
     public partial class CaptureScreenResult : Form
     {
         DateTime localDate = DateTime.Now;
+        private bool dragging = false;
+        private Point startPoint = new Point(0, 0);
 
         public CaptureScreenResult(Image screenshot)
         {
@@ -45,6 +47,26 @@ namespace ReadScreen
         private void quitBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void flowLayoutPanel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragging = true;
+            startPoint = new Point(e.X, e.Y);
+        }
+
+        private void flowLayoutPanel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point p = PointToScreen(e.Location);
+                Location = new Point(p.X - this.startPoint.X, p.Y - this.startPoint.Y);
+            }
+        }
+
+        private void flowLayoutPanel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
         }
     }
 }

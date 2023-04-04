@@ -35,13 +35,15 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.resultText = new System.Windows.Forms.TextBox();
             this.quitBtn = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.screenshotBox)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // screenshotBox
             // 
-            this.screenshotBox.Location = new System.Drawing.Point(265, 35);
+            this.screenshotBox.Location = new System.Drawing.Point(265, 39);
             this.screenshotBox.Name = "screenshotBox";
             this.screenshotBox.Size = new System.Drawing.Size(477, 426);
             this.screenshotBox.TabIndex = 0;
@@ -97,7 +99,7 @@
             this.groupBox1.Controls.Add(this.copyImage);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.groupBox1.Location = new System.Drawing.Point(12, 35);
+            this.groupBox1.Location = new System.Drawing.Point(12, 33);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(247, 419);
             this.groupBox1.TabIndex = 4;
@@ -120,13 +122,26 @@
             this.quitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.quitBtn.Font = new System.Drawing.Font("Javanese Text", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.quitBtn.ForeColor = System.Drawing.Color.White;
-            this.quitBtn.Location = new System.Drawing.Point(714, 6);
+            this.quitBtn.Location = new System.Drawing.Point(721, 3);
             this.quitBtn.Name = "quitBtn";
-            this.quitBtn.Size = new System.Drawing.Size(24, 23);
+            this.quitBtn.Size = new System.Drawing.Size(26, 26);
             this.quitBtn.TabIndex = 5;
             this.quitBtn.Text = "X";
             this.quitBtn.UseVisualStyleBackColor = false;
             this.quitBtn.Click += new System.EventHandler(this.quitBtn_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.quitBtn);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(750, 33);
+            this.flowLayoutPanel1.TabIndex = 6;
+            this.flowLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.flowLayoutPanel1_MouseDown);
+            this.flowLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.flowLayoutPanel1_MouseMove);
+            this.flowLayoutPanel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.flowLayoutPanel1_MouseUp);
             // 
             // CaptureScreenResult
             // 
@@ -134,7 +149,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(37)))));
             this.ClientSize = new System.Drawing.Size(750, 478);
-            this.Controls.Add(this.quitBtn);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.screenshotBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -143,6 +158,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.screenshotBox)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -156,5 +172,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox resultText;
         private System.Windows.Forms.Button quitBtn;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
