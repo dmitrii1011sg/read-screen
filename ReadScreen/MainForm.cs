@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using WK.Libraries.HotkeyListenerNS;
+
+
 
 namespace ReadScreen
 {
     public partial class MainForm : Form
     {
+        internal static HotkeyListener hotkeyListener = new HotkeyListener();
+        internal static Hotkey CntrPrtScKey = new Hotkey(Keys.Control, Keys.PrintScreen);
+
         public MainForm()
         {
             InitializeComponent();
@@ -20,6 +19,23 @@ namespace ReadScreen
             this.ShowInTaskbar = false;
 
             copyClipboardCheckBox.Checked = Properties.Settings.Default.sett_copytoclipboard;
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            notifyiconMain.Visible = true;
+
+            hotkeyListener.Add(CntrPrtScKey);
+            hotkeyListener.HotkeyPressed += Hkl_HotkeyPressed;
+        }
+
+        private void Hkl_HotkeyPressed(object sender, HotkeyEventArgs e)
+        {
+            if (e.Hotkey == CntrPrtScKey)
+            {
+                CaptureScreen capture = new CaptureScreen();
+                capture.Show();
+            }
         }
 
         private void showToolStripMenuItem_Click(object sender, EventArgs e)
@@ -36,6 +52,7 @@ namespace ReadScreen
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            hotkeyListener.RemoveAll();
             Application.Exit();
         }
 
@@ -48,9 +65,6 @@ namespace ReadScreen
             }
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            notifyiconMain.Visible = true;
-        }
+        
     }
 }
