@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.settingsBox = new System.Windows.Forms.GroupBox();
-            this.otherGroup = new System.Windows.Forms.GroupBox();
-            this.copyClipboardCheckBox = new System.Windows.Forms.CheckBox();
             this.doneBtn = new System.Windows.Forms.Button();
+            this.copyClipboardCheckBox = new System.Windows.Forms.CheckBox();
+            this.otherGroup = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.notifyiconMain = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStripApp = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -56,16 +56,14 @@
             this.settingsBox.TabStop = false;
             this.settingsBox.Text = "Settings";
             // 
-            // otherGroup
+            // doneBtn
             // 
-            this.otherGroup.Controls.Add(this.label1);
-            this.otherGroup.Location = new System.Drawing.Point(12, 140);
-            this.otherGroup.Name = "otherGroup";
-            this.otherGroup.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.otherGroup.Size = new System.Drawing.Size(274, 120);
-            this.otherGroup.TabIndex = 1;
-            this.otherGroup.TabStop = false;
-            this.otherGroup.Text = "...";
+            this.doneBtn.Location = new System.Drawing.Point(193, 93);
+            this.doneBtn.Name = "doneBtn";
+            this.doneBtn.Size = new System.Drawing.Size(75, 23);
+            this.doneBtn.TabIndex = 1;
+            this.doneBtn.Text = "Done";
+            this.doneBtn.UseVisualStyleBackColor = true;
             // 
             // copyClipboardCheckBox
             // 
@@ -77,14 +75,16 @@
             this.copyClipboardCheckBox.Text = "Copy on clipboard";
             this.copyClipboardCheckBox.UseVisualStyleBackColor = true;
             // 
-            // doneBtn
+            // otherGroup
             // 
-            this.doneBtn.Location = new System.Drawing.Point(193, 93);
-            this.doneBtn.Name = "doneBtn";
-            this.doneBtn.Size = new System.Drawing.Size(75, 23);
-            this.doneBtn.TabIndex = 1;
-            this.doneBtn.Text = "Done";
-            this.doneBtn.UseVisualStyleBackColor = true;
+            this.otherGroup.Controls.Add(this.label1);
+            this.otherGroup.Location = new System.Drawing.Point(12, 140);
+            this.otherGroup.Name = "otherGroup";
+            this.otherGroup.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.otherGroup.Size = new System.Drawing.Size(274, 120);
+            this.otherGroup.TabIndex = 1;
+            this.otherGroup.TabStop = false;
+            this.otherGroup.Text = "...";
             // 
             // label1
             // 
@@ -101,7 +101,7 @@
             this.notifyiconMain.BalloonTipTitle = "Read Screen";
             this.notifyiconMain.ContextMenuStrip = this.contextMenuStripApp;
             this.notifyiconMain.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyiconMain.Icon")));
-            this.notifyiconMain.Text = "notifyiconMain";
+            this.notifyiconMain.Text = "Read Screen";
             this.notifyiconMain.Visible = true;
             // 
             // contextMenuStripApp

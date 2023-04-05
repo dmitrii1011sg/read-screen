@@ -155,6 +155,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CaptureScreenResult";
             this.Text = "CaptureScreenResult";
+            this.Load += new System.EventHandler(this.CaptureScreenResult_Load);
             ((System.ComponentModel.ISupportInitialize)(this.screenshotBox)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

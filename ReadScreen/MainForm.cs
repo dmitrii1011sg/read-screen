@@ -64,7 +64,5 @@ namespace ReadScreen
                 Hide();
             }
         }
-
-        
     }
 }
