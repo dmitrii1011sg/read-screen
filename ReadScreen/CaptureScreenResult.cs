@@ -5,6 +5,8 @@ using Tesseract;
 
 namespace ReadScreen
 {
+   
+
     public partial class CaptureScreenResult : Form
     {
         /// <summary>
@@ -15,9 +17,8 @@ namespace ReadScreen
         private Page page;
         private string pageText;
 
-        internal static TesseractEngine engine = new TesseractEngine(@"./tessdata", "rus", EngineMode.Default);
+        private TesseractEngine engine;
         private static readonly BitmapToPixConverter bitmapConverter = new BitmapToPixConverter();
-
 
         DateTime localDate = DateTime.Now;
         private bool dragging = false;
@@ -33,6 +34,16 @@ namespace ReadScreen
             this.screenshotBitmap = (Bitmap)screenshot;
             this.screenshotBox.Image = screenshot;
             this.resultText.Text = "OCR text is not implements";
+
+            this.comboBoxLang.DataSource = new ComboItemLang[] {
+                new ComboItemLang{ Id = "rus", Lang = "Russian" },
+                new ComboItemLang{ Id = "en", Lang = "English" }
+            };
+
+            this.comboBoxLang.ValueMember = "Id";
+            this.comboBoxLang.DisplayMember = "Lang";
+
+            this.comboBoxLang.SelectedIndex = this.comboBoxLang.FindString("rus");
         }
 
         private void saveImage_Click(object sender, EventArgs e)
@@ -84,10 +95,28 @@ namespace ReadScreen
 
         private void CaptureScreenResult_Load(object sender, EventArgs e)
         {
+            engine = new TesseractEngine(@"./tessdata", "rus", EngineMode.Default);
             screenshotPix = bitmapConverter.Convert((Bitmap)screenshotBox.Image);
+            this.UpdateTesseractText();
+        }
+
+        private void UpdateTesseractText()
+        {
             page = engine.Process(screenshotPix);
             pageText = page.GetText();
             this.resultText.Text = pageText.Length > 0 ? pageText : "Page Empty.";
         }
+
+        private void doneLang_Click(object sender, EventArgs e)
+        {
+            engine = new TesseractEngine(@"./tessdata", this.comboBoxLang.SelectedValue.ToString(), EngineMode.Default);
+            this.UpdateTesseractText();
+        }
+    }
+
+    class ComboItemLang
+    {
+        public string Id { get; set; }
+        public string Lang { get; set; }
     }
 }

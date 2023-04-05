@@ -33,9 +33,12 @@
             this.copyImage = new System.Windows.Forms.Button();
             this.copyText = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxLang = new System.Windows.Forms.ComboBox();
             this.resultText = new System.Windows.Forms.TextBox();
             this.quitBtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.doneLang = new System.Windows.Forms.Button();
+            this.langLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.screenshotBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -54,6 +57,7 @@
             this.saveImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(147)))), ((int)(((byte)(86)))));
             this.saveImage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.saveImage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.saveImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveImage.ForeColor = System.Drawing.Color.White;
             this.saveImage.Location = new System.Drawing.Point(5, 390);
             this.saveImage.Name = "saveImage";
@@ -68,6 +72,7 @@
             this.copyImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(147)))), ((int)(((byte)(86)))));
             this.copyImage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.copyImage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.copyImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.copyImage.ForeColor = System.Drawing.Color.White;
             this.copyImage.Location = new System.Drawing.Point(86, 390);
             this.copyImage.Name = "copyImage";
@@ -82,6 +87,7 @@
             this.copyText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(147)))), ((int)(((byte)(86)))));
             this.copyText.Cursor = System.Windows.Forms.Cursors.Hand;
             this.copyText.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.copyText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.copyText.ForeColor = System.Drawing.Color.White;
             this.copyText.Location = new System.Drawing.Point(167, 390);
             this.copyText.Name = "copyText";
@@ -93,11 +99,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.langLabel);
+            this.groupBox1.Controls.Add(this.doneLang);
+            this.groupBox1.Controls.Add(this.comboBoxLang);
             this.groupBox1.Controls.Add(this.resultText);
             this.groupBox1.Controls.Add(this.saveImage);
             this.groupBox1.Controls.Add(this.copyText);
             this.groupBox1.Controls.Add(this.copyImage);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Window;
             this.groupBox1.Location = new System.Drawing.Point(12, 33);
             this.groupBox1.Name = "groupBox1";
@@ -106,13 +116,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Result";
             // 
+            // comboBoxLang
+            // 
+            this.comboBoxLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxLang.FormattingEnabled = true;
+            this.comboBoxLang.Location = new System.Drawing.Point(86, 363);
+            this.comboBoxLang.Name = "comboBoxLang";
+            this.comboBoxLang.Size = new System.Drawing.Size(75, 23);
+            this.comboBoxLang.TabIndex = 5;
+            // 
             // resultText
             // 
             this.resultText.Location = new System.Drawing.Point(6, 19);
             this.resultText.Multiline = true;
             this.resultText.Name = "resultText";
             this.resultText.ReadOnly = true;
-            this.resultText.Size = new System.Drawing.Size(235, 365);
+            this.resultText.Size = new System.Drawing.Size(235, 338);
             this.resultText.TabIndex = 4;
             // 
             // quitBtn
@@ -142,6 +162,29 @@
             this.flowLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.flowLayoutPanel1_MouseDown);
             this.flowLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.flowLayoutPanel1_MouseMove);
             this.flowLayoutPanel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.flowLayoutPanel1_MouseUp);
+            // 
+            // doneLang
+            // 
+            this.doneLang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.doneLang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.doneLang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.doneLang.Location = new System.Drawing.Point(168, 363);
+            this.doneLang.Name = "doneLang";
+            this.doneLang.Size = new System.Drawing.Size(75, 23);
+            this.doneLang.TabIndex = 6;
+            this.doneLang.Text = "Done";
+            this.doneLang.UseVisualStyleBackColor = false;
+            this.doneLang.Click += new System.EventHandler(this.doneLang_Click);
+            // 
+            // langLabel
+            // 
+            this.langLabel.AutoSize = true;
+            this.langLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.langLabel.Location = new System.Drawing.Point(6, 366);
+            this.langLabel.Name = "langLabel";
+            this.langLabel.Size = new System.Drawing.Size(71, 15);
+            this.langLabel.TabIndex = 7;
+            this.langLabel.Text = "Select lang:";
             // 
             // CaptureScreenResult
             // 
@@ -174,5 +217,8 @@
         private System.Windows.Forms.TextBox resultText;
         private System.Windows.Forms.Button quitBtn;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.ComboBox comboBoxLang;
+        private System.Windows.Forms.Button doneLang;
+        private System.Windows.Forms.Label langLabel;
     }
 }

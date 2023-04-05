@@ -14,17 +14,14 @@ namespace ReadScreen
         public MainForm()
         {
             InitializeComponent();
-
-            this.WindowState = FormWindowState.Minimized;
             this.ShowInTaskbar = false;
-
             copyClipboardCheckBox.Checked = Properties.Settings.Default.sett_copytoclipboard;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             notifyiconMain.Visible = true;
-
+            this.WindowState = FormWindowState.Minimized;
             hotkeyListener.Add(CntrPrtScKey);
             hotkeyListener.HotkeyPressed += Hkl_HotkeyPressed;
         }
