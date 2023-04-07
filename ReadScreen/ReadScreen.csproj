@@ -61,6 +61,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CaptureCrop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CaptureCrop.Designer.cs">
+      <DependentUpon>CaptureCrop.cs</DependentUpon>
+    </Compile>
     <Compile Include="CaptureScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CaptureCrop.resx">
+      <DependentUpon>CaptureCrop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CaptureScreen.resx">
       <DependentUpon>CaptureScreen.cs</DependentUpon>
     </EmbeddedResource>

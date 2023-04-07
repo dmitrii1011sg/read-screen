@@ -64,7 +64,7 @@ namespace ReadScreen
                 screenPictureBox.Size = new System.Drawing.Size(SystemInformation.VirtualScreen.Width, SystemInformation.VirtualScreen.Height);
                 screenPictureBox.Image = Image.FromStream(s);
             }
-
+            this.Width = 500;
             this.Show();
             Cursor = Cursors.Cross;
         }

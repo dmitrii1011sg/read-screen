@@ -21,6 +21,7 @@ namespace ReadScreen
         private void MainForm_Load(object sender, EventArgs e)
         {
             notifyiconMain.Visible = true;
+            Hide();
             this.WindowState = FormWindowState.Minimized;
             hotkeyListener.Add(CntrPrtScKey);
             hotkeyListener.HotkeyPressed += Hkl_HotkeyPressed;
@@ -30,7 +31,7 @@ namespace ReadScreen
         {
             if (e.Hotkey == CntrPrtScKey)
             {
-                CaptureScreen capture = new CaptureScreen();
+                CaptureCrop capture = new CaptureCrop();
                 capture.Show();
             }
         }
@@ -43,7 +44,7 @@ namespace ReadScreen
 
         private void captureToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CaptureScreen capture = new CaptureScreen();
+            CaptureCrop capture = new CaptureCrop();
             capture.Show();
         }
 
