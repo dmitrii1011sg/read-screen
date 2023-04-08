@@ -61,6 +61,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\CloseBtnControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CloseBtnControl.Designer.cs">
+      <DependentUpon>CloseBtnControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Constance.cs" />
     <Compile Include="Controls\AboutControl.cs">
       <SubType>UserControl</SubType>
@@ -102,6 +108,9 @@
     </Compile>
     <Compile Include="ReadScreenUtils.cs" />
     <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="Controls\CloseBtnControl.resx">
+      <DependentUpon>CloseBtnControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\AboutControl.resx">
       <DependentUpon>AboutControl.cs</DependentUpon>
     </EmbeddedResource>

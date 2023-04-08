@@ -38,6 +38,7 @@
             // 
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.title.ForeColor = System.Drawing.Color.White;
             this.title.Location = new System.Drawing.Point(13, 12);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(146, 20);
@@ -47,6 +48,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(17, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(215, 65);
@@ -58,6 +60,7 @@
             // developerLabel
             // 
             this.developerLabel.AutoSize = true;
+            this.developerLabel.ForeColor = System.Drawing.Color.White;
             this.developerLabel.Location = new System.Drawing.Point(17, 176);
             this.developerLabel.Name = "developerLabel";
             this.developerLabel.Size = new System.Drawing.Size(139, 13);
@@ -67,6 +70,7 @@
             // versionLabel
             // 
             this.versionLabel.AutoSize = true;
+            this.versionLabel.ForeColor = System.Drawing.Color.White;
             this.versionLabel.Location = new System.Drawing.Point(213, 176);
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(19, 13);
@@ -77,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(37)))));
             this.Controls.Add(this.versionLabel);
             this.Controls.Add(this.developerLabel);
             this.Controls.Add(this.label1);

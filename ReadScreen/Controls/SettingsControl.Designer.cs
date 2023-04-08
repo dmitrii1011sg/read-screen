@@ -44,6 +44,7 @@
             // 
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.title.ForeColor = System.Drawing.Color.White;
             this.title.Location = new System.Drawing.Point(13, 12);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(68, 20);
@@ -53,6 +54,7 @@
             // labelDefaultLang
             // 
             this.labelDefaultLang.AutoSize = true;
+            this.labelDefaultLang.ForeColor = System.Drawing.Color.White;
             this.labelDefaultLang.Location = new System.Drawing.Point(17, 51);
             this.labelDefaultLang.Name = "labelDefaultLang";
             this.labelDefaultLang.Size = new System.Drawing.Size(92, 13);
@@ -72,6 +74,7 @@
             this.groupBoxCopy.Controls.Add(this.nothingCopyBtn);
             this.groupBoxCopy.Controls.Add(this.autoCopyText);
             this.groupBoxCopy.Controls.Add(this.autoCopyImage);
+            this.groupBoxCopy.ForeColor = System.Drawing.Color.White;
             this.groupBoxCopy.Location = new System.Drawing.Point(17, 75);
             this.groupBoxCopy.Name = "groupBoxCopy";
             this.groupBoxCopy.Size = new System.Drawing.Size(219, 89);
@@ -114,17 +117,21 @@
             // 
             // saveBtn
             // 
+            this.saveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(147)))), ((int)(((byte)(86)))));
+            this.saveBtn.FlatAppearance.BorderSize = 0;
+            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveBtn.Location = new System.Drawing.Point(161, 193);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(75, 23);
             this.saveBtn.TabIndex = 4;
             this.saveBtn.Text = "Save";
-            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.UseVisualStyleBackColor = false;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // checkBoxRunStartup
             // 
             this.checkBoxRunStartup.AutoSize = true;
+            this.checkBoxRunStartup.ForeColor = System.Drawing.Color.White;
             this.checkBoxRunStartup.Location = new System.Drawing.Point(24, 170);
             this.checkBoxRunStartup.Name = "checkBoxRunStartup";
             this.checkBoxRunStartup.Size = new System.Drawing.Size(146, 17);
@@ -136,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(37)))));
             this.Controls.Add(this.checkBoxRunStartup);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.groupBoxCopy);
