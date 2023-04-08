@@ -40,7 +40,7 @@ namespace ReadScreen
             comboBoxLang.DataSource = Constance.ComboxItemsLang;
             comboBoxLang.ValueMember = "Id";
             comboBoxLang.DisplayMember = "Lang";
-            comboBoxLang.SelectedIndex = comboBoxLang.FindString("rus");
+            comboBoxLang.SelectedIndex = comboBoxLang.FindString(Properties.Settings.Default.sett_defaultlang);
         }
 
         private void saveImage_Click(object sender, EventArgs e)
@@ -85,7 +85,7 @@ namespace ReadScreen
 
         private void CaptureScreenResult_Load(object sender, EventArgs e)
         {
-            engine = new TesseractEngine(@"./tessdata", "rus", EngineMode.Default);
+            engine = new TesseractEngine(@"./tessdata", Properties.Settings.Default.sett_defaultlang, EngineMode.Default);
             screenshotPix = bitmapConverter.Convert(screenshotBitmap);
             UpdateTesseractText();
         }
@@ -94,13 +94,13 @@ namespace ReadScreen
         {
             page = engine.Process(screenshotPix);
             pageText = page.GetText();
-            this.resultText.Text = pageText.Length > 0 ? pageText : "Page Empty.";
+            resultText.Text = pageText.Length > 0 ? pageText : "Page Empty.";
         }
 
         private void doneLang_Click(object sender, EventArgs e)
         {
-            engine = new TesseractEngine(@"./tessdata", this.comboBoxLang.SelectedValue.ToString(), EngineMode.Default);
-            this.UpdateTesseractText();
+            engine = new TesseractEngine(@"./tessdata", comboBoxLang.SelectedValue.ToString(), EngineMode.Default);
+            UpdateTesseractText();
         }
     }
 }
