@@ -17,10 +17,11 @@ namespace ReadScreen
         private Page page;
         private string pageText;
 
+        private ReadScreenUtils Utils = new ReadScreenUtils();
+
         private TesseractEngine engine;
         private static readonly BitmapToPixConverter bitmapConverter = new BitmapToPixConverter();
-
-        DateTime localDate = DateTime.Now;
+        
         private bool dragging = false;
         private Point startPoint = new Point(0, 0);
 
@@ -28,44 +29,33 @@ namespace ReadScreen
         {
             InitializeComponent();
 
-            this.screenshotBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.AutoSize = true;
+            screenshotBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            AutoSize = true;
 
-            this.screenshotBitmap = (Bitmap)screenshot;
-            this.screenshotBox.Image = screenshot;
-            this.resultText.Text = "OCR text is not implements";
+            screenshotBitmap = (Bitmap)screenshot;
+            screenshotBox.Image = screenshot;
 
-            this.comboBoxLang.DataSource = new ComboItemLang[] {
-                new ComboItemLang{ Id = "rus", Lang = "Russian" },
-                new ComboItemLang{ Id = "en", Lang = "English" }
-            };
+            resultText.Text = "OCR text is not implements";
 
-            this.comboBoxLang.ValueMember = "Id";
-            this.comboBoxLang.DisplayMember = "Lang";
-
-            this.comboBoxLang.SelectedIndex = this.comboBoxLang.FindString("rus");
+            comboBoxLang.DataSource = Constance.ComboxItemsLang;
+            comboBoxLang.ValueMember = "Id";
+            comboBoxLang.DisplayMember = "Lang";
+            comboBoxLang.SelectedIndex = comboBoxLang.FindString("rus");
         }
 
         private void saveImage_Click(object sender, EventArgs e)
         {
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.CheckPathExists = true;
-            sfd.FileName = "Capture-"+localDate.ToString();
-            sfd.Filter = "PNG Image(*.png)|*.png|JPG Image(*.jpg)|*.jpg|BMP Image(*.bmp)|*.bmp";
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                screenshotBox.Image.Save(sfd.FileName);
-            }
+            Utils.SaveImage(screenshotBox.Image);
         }
 
         private void copyImage_Click(object sender, EventArgs e)
         {
-            Clipboard.SetImage(screenshotBox.Image);
+            Utils.CopyImageToClipcoard(screenshotBox.Image);
         }
 
         private void copyText_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(resultText.Text);
+            Utils.CopyTextToClipboard(resultText.Text);
         }
 
         private void quitBtn_Click(object sender, EventArgs e)
@@ -96,8 +86,8 @@ namespace ReadScreen
         private void CaptureScreenResult_Load(object sender, EventArgs e)
         {
             engine = new TesseractEngine(@"./tessdata", "rus", EngineMode.Default);
-            screenshotPix = bitmapConverter.Convert((Bitmap)screenshotBox.Image);
-            this.UpdateTesseractText();
+            screenshotPix = bitmapConverter.Convert(screenshotBitmap);
+            UpdateTesseractText();
         }
 
         private void UpdateTesseractText()
@@ -112,11 +102,5 @@ namespace ReadScreen
             engine = new TesseractEngine(@"./tessdata", this.comboBoxLang.SelectedValue.ToString(), EngineMode.Default);
             this.UpdateTesseractText();
         }
-    }
-
-    class ComboItemLang
-    {
-        public string Id { get; set; }
-        public string Lang { get; set; }
     }
 }

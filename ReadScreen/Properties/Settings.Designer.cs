@@ -29,16 +29,61 @@ namespace ReadScreen.Properties
 
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool sett_copytoclipboard
+        [global::System.Configuration.DefaultSettingValueAttribute("rus")]
+        public string sett_defaultlang
         {
             get
             {
-                return ((bool)(this["sett_copytoclipboard"]));
+                return ((string)(this["sett_defaultlang"]));
             }
             set
             {
-                this["sett_copytoclipboard"] = value;
+                this["sett_defaultlang"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool sett_copyimagetoclipboard
+        {
+            get
+            {
+                return ((bool)(this["sett_copyimagetoclipboard"]));
+            }
+            set
+            {
+                this["sett_copyimagetoclipboard"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool sett_copytexttoclipboard
+        {
+            get
+            {
+                return ((bool)(this["sett_copytexttoclipboard"]));
+            }
+            set
+            {
+                this["sett_copytexttoclipboard"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool sett_copynothingtoclipboard
+        {
+            get
+            {
+                return ((bool)(this["sett_copynothingtoclipboard"]));
+            }
+            set
+            {
+                this["sett_copynothingtoclipboard"] = value;
             }
         }
     }
