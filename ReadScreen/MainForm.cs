@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WK.Libraries.HotkeyListenerNS;
-
-
 
 namespace ReadScreen
 {
@@ -15,14 +20,13 @@ namespace ReadScreen
         {
             InitializeComponent();
             this.ShowInTaskbar = false;
-            copyClipboardCheckBox.Checked = Properties.Settings.Default.sett_copytoclipboard;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            notifyiconMain.Visible = true;
             Hide();
-            this.WindowState = FormWindowState.Minimized;
+            iconMain.Visible = true;
+
             hotkeyListener.Add(CntrPrtScKey);
             hotkeyListener.HotkeyPressed += Hkl_HotkeyPressed;
         }
@@ -36,13 +40,13 @@ namespace ReadScreen
             }
         }
 
-        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        private void settingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Normal;
-            this.Show();
+            SettingForm form = new SettingForm();
+            form.Show();
         }
 
-        private void captureToolStripMenuItem_Click(object sender, EventArgs e)
+        private void captureScreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CaptureCrop capture = new CaptureCrop();
             capture.Show();
@@ -50,6 +54,7 @@ namespace ReadScreen
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            iconMain.Dispose();
             hotkeyListener.RemoveAll();
             Application.Exit();
         }

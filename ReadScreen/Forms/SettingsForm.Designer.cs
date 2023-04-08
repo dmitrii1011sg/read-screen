@@ -1,6 +1,6 @@
 ﻿namespace ReadScreen
 {
-    partial class MainForm
+    partial class SettingForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.settingsBox = new System.Windows.Forms.GroupBox();
             this.doneBtn = new System.Windows.Forms.Button();
             this.copyClipboardCheckBox = new System.Windows.Forms.CheckBox();
             this.otherGroup = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.notifyiconMain = new System.Windows.Forms.NotifyIcon(this.components);
-            this.contextMenuStripApp = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.captureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsBox.SuspendLayout();
             this.otherGroup.SuspendLayout();
-            this.contextMenuStripApp.SuspendLayout();
             this.SuspendLayout();
             // 
             // settingsBox
@@ -95,61 +87,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "About prg";
             // 
-            // notifyiconMain
-            // 
-            this.notifyiconMain.BalloonTipText = "Read Screen";
-            this.notifyiconMain.BalloonTipTitle = "Read Screen";
-            this.notifyiconMain.ContextMenuStrip = this.contextMenuStripApp;
-            this.notifyiconMain.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyiconMain.Icon")));
-            this.notifyiconMain.Text = "Read Screen";
-            this.notifyiconMain.Visible = true;
-            // 
-            // contextMenuStripApp
-            // 
-            this.contextMenuStripApp.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showToolStripMenuItem,
-            this.captureToolStripMenuItem,
-            this.quitToolStripMenuItem});
-            this.contextMenuStripApp.Name = "contextMenuStripApp";
-            this.contextMenuStripApp.Size = new System.Drawing.Size(120, 70);
-            // 
-            // showToolStripMenuItem
-            // 
-            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.showToolStripMenuItem.Text = "Show";
-            this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
-            // 
-            // captureToolStripMenuItem
-            // 
-            this.captureToolStripMenuItem.Name = "captureToolStripMenuItem";
-            this.captureToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.captureToolStripMenuItem.Text = "Capture ";
-            this.captureToolStripMenuItem.Click += new System.EventHandler(this.captureToolStripMenuItem_Click);
-            // 
-            // quitToolStripMenuItem
-            // 
-            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.quitToolStripMenuItem.Text = "Quit";
-            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
-            // 
-            // MainForm
+            // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(298, 272);
             this.Controls.Add(this.otherGroup);
             this.Controls.Add(this.settingsBox);
-            this.Name = "MainForm";
+            this.Name = "SettingForm";
             this.Text = "ReadScreen";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.settingsBox.ResumeLayout(false);
             this.settingsBox.PerformLayout();
             this.otherGroup.ResumeLayout(false);
             this.otherGroup.PerformLayout();
-            this.contextMenuStripApp.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -161,10 +111,5 @@
         private System.Windows.Forms.Button doneBtn;
         private System.Windows.Forms.CheckBox copyClipboardCheckBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NotifyIcon notifyiconMain;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStripApp;
-        private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem captureToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
     }
 }
