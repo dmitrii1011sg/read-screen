@@ -28,7 +28,7 @@ namespace ReadScreen
             BackColor = Color.Black;
             Opacity = 0.3f;
 
-            selectPen = new Pen(Color.Blue);
+            selectPen = new Pen(Color.Red);
             pictureArea.Visible = false;
         
             this.Activate();

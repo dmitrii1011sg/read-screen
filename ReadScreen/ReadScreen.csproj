@@ -61,42 +61,42 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CaptureCrop.cs">
+    <Compile Include="Forms\CaptureCrop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CaptureCrop.Designer.cs">
+    <Compile Include="Forms\CaptureCrop.Designer.cs">
       <DependentUpon>CaptureCrop.cs</DependentUpon>
     </Compile>
-    <Compile Include="CaptureScreen.cs">
+    <Compile Include="Forms\CaptureScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CaptureScreen.Designer.cs">
+    <Compile Include="Forms\CaptureScreen.Designer.cs">
       <DependentUpon>CaptureScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="CaptureScreenResult.cs">
+    <Compile Include="Forms\CaptureScreenResult.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CaptureScreenResult.Designer.cs">
+    <Compile Include="Forms\CaptureScreenResult.Designer.cs">
       <DependentUpon>CaptureScreenResult.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CaptureCrop.resx">
+    <EmbeddedResource Include="Forms\CaptureCrop.resx">
       <DependentUpon>CaptureCrop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CaptureScreen.resx">
+    <EmbeddedResource Include="Forms\CaptureScreen.resx">
       <DependentUpon>CaptureScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CaptureScreenResult.resx">
+    <EmbeddedResource Include="Forms\CaptureScreenResult.resx">
       <DependentUpon>CaptureScreenResult.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
