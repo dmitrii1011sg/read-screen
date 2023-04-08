@@ -16,12 +16,7 @@ namespace ReadScreen
 
         private void emailLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("mailto:dmitrii1011sg@gmail.com");
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            Process.Start(Constance.developerEmail);
         }
 
         private void changeSettingBtn_Click(object sender, EventArgs e)
@@ -31,7 +26,7 @@ namespace ReadScreen
 
         private void changeAboutBtn_Click(object sender, EventArgs e)
         {
-            aboutControl1.BringToFront();
+            aboutControl.BringToFront();
         }
     }
 }

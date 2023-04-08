@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -10,10 +11,10 @@ namespace ReadScreen
 {
     class ReadScreenUtils
     {
-        DateTime localDate = DateTime.Now;
-
-        public void SaveImage(Image image)
+        public static void SaveImage(Image image)
         {
+            string localDate = DateTime.Now.ToString().Replace(".", "").Replace(":", "").Replace(" ", "");
+            MessageBox.Show(localDate);
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.CheckPathExists = true;
             sfd.FileName = "Capture-" + localDate.ToString();
@@ -24,14 +25,30 @@ namespace ReadScreen
             }
         }
 
-        public void CopyImageToClipcoard(Image image)
+        public static void CopyImageToClipcoard(Image image)
         {
             Clipboard.SetImage(image);
         }
 
-        public void CopyTextToClipboard(string text)
+        public static void CopyTextToClipboard(string text)
         {
             Clipboard.SetText(text);
+        }
+
+        public static void AddApplicationToStartup()
+        {
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+            {
+                key.SetValue("ReadScreen", "\"" + Application.ExecutablePath + "\"");
+            }
+        }
+
+        public static void RemoveApplicationFromStartup()
+        {
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+            {
+                key.DeleteValue("ReadScreen", false);
+            }
         }
     }
 }

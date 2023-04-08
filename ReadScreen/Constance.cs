@@ -12,6 +12,8 @@ namespace ReadScreen
             new ComboItemLang{ Id = "rus", Lang = "Russian" },
             new ComboItemLang{ Id = "en", Lang = "English" }
         };
+
+        public static readonly string developerEmail = "mailto:dmitrii1011sg@gmail.com";
     }
 
     class ComboItemLang

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace ReadScreen
 {
@@ -23,7 +24,9 @@ namespace ReadScreen
             comboBoxDefaultLang.DataSource = Constance.ComboxItemsLang;
             comboBoxDefaultLang.ValueMember = "Id";
             comboBoxDefaultLang.DisplayMember = "Lang";
-            comboBoxDefaultLang.SelectedIndex = this.comboBoxDefaultLang.FindString(Properties.Settings.Default.sett_defaultlang);
+            comboBoxDefaultLang.SelectedIndex = comboBoxDefaultLang.FindString(Properties.Settings.Default.sett_defaultlang);
+
+            checkBoxRunStartup.Checked = Properties.Settings.Default.sett_runstartup;
         }
 
         private void UpdateAutoCopySettings()
@@ -38,10 +41,23 @@ namespace ReadScreen
             Properties.Settings.Default.sett_defaultlang = comboBoxDefaultLang.SelectedValue.ToString();
         }
 
+        private void UpdateRunAppStartUp()
+        {
+            if (checkBoxRunStartup.Checked != Properties.Settings.Default.sett_runstartup)
+            {
+                Properties.Settings.Default.sett_runstartup = checkBoxRunStartup.Checked;
+
+                if (checkBoxRunStartup.Checked) ReadScreenUtils.AddApplicationToStartup();
+                else ReadScreenUtils.RemoveApplicationFromStartup();
+            }
+        }
+
         private void saveBtn_Click(object sender, EventArgs e)
         {
             UpdateAutoCopySettings();
             UpdateDefaultLangSettings();
+            UpdateRunAppStartUp();
+            Properties.Settings.Default.Save();
         }
     }
 }

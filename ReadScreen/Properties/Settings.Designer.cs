@@ -45,6 +45,21 @@ namespace ReadScreen.Properties
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool sett_runstartup
+        {
+            get
+            {
+                return ((bool)(this["sett_runstartup"]));
+            }
+            set
+            {
+                this["sett_runstartup"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool sett_copyimagetoclipboard
         {
             get

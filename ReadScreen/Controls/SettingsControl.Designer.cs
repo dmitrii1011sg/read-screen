@@ -36,6 +36,7 @@
             this.autoCopyText = new System.Windows.Forms.RadioButton();
             this.autoCopyImage = new System.Windows.Forms.RadioButton();
             this.saveBtn = new System.Windows.Forms.Button();
+            this.checkBoxRunStartup = new System.Windows.Forms.CheckBox();
             this.groupBoxCopy.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,7 +114,7 @@
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(161, 170);
+            this.saveBtn.Location = new System.Drawing.Point(161, 193);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(75, 23);
             this.saveBtn.TabIndex = 4;
@@ -121,17 +122,29 @@
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
+            // checkBoxRunStartup
+            // 
+            this.checkBoxRunStartup.AutoSize = true;
+            this.checkBoxRunStartup.Location = new System.Drawing.Point(24, 170);
+            this.checkBoxRunStartup.Name = "checkBoxRunStartup";
+            this.checkBoxRunStartup.Size = new System.Drawing.Size(146, 17);
+            this.checkBoxRunStartup.TabIndex = 5;
+            this.checkBoxRunStartup.Text = "Run ReadScreen Startup";
+            this.checkBoxRunStartup.UseVisualStyleBackColor = true;
+            // 
             // SettingsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.checkBoxRunStartup);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.groupBoxCopy);
             this.Controls.Add(this.comboBoxDefaultLang);
             this.Controls.Add(this.labelDefaultLang);
             this.Controls.Add(this.title);
             this.Name = "SettingsControl";
-            this.Size = new System.Drawing.Size(258, 200);
+            this.Size = new System.Drawing.Size(258, 228);
             this.groupBoxCopy.ResumeLayout(false);
             this.groupBoxCopy.PerformLayout();
             this.ResumeLayout(false);
@@ -149,5 +162,6 @@
         private System.Windows.Forms.RadioButton autoCopyImage;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.RadioButton nothingCopyBtn;
+        private System.Windows.Forms.CheckBox checkBoxRunStartup;
     }
 }

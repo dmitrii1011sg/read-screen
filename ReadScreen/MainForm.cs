@@ -24,9 +24,7 @@ namespace ReadScreen
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Hide();
             iconMain.Visible = true;
-
             hotkeyListener.Add(CntrPrtScKey);
             hotkeyListener.HotkeyPressed += Hkl_HotkeyPressed;
         }

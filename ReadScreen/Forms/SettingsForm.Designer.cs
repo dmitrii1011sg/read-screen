@@ -33,7 +33,7 @@
             this.changeSettingBtn = new System.Windows.Forms.Button();
             this.tabContentPanel = new System.Windows.Forms.Panel();
             this.settingsControl = new ReadScreen.SettingsControl();
-            this.aboutControl1 = new ReadScreen.AboutControl();
+            this.aboutControl = new ReadScreen.AboutControl();
             this.tabControlPanel.SuspendLayout();
             this.tabContentPanel.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +71,7 @@
             // tabContentPanel
             // 
             this.tabContentPanel.Controls.Add(this.settingsControl);
-            this.tabContentPanel.Controls.Add(this.aboutControl1);
+            this.tabContentPanel.Controls.Add(this.aboutControl);
             this.tabContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabContentPanel.Location = new System.Drawing.Point(160, 0);
             this.tabContentPanel.Name = "tabContentPanel";
@@ -83,15 +83,15 @@
             this.settingsControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.settingsControl.Location = new System.Drawing.Point(0, 0);
             this.settingsControl.Name = "settingsControl";
-            this.settingsControl.Size = new System.Drawing.Size(250, 221);
+            this.settingsControl.Size = new System.Drawing.Size(250, 222);
             this.settingsControl.TabIndex = 0;
             // 
             // aboutControl1
             // 
-            this.aboutControl1.Location = new System.Drawing.Point(3, 3);
-            this.aboutControl1.Name = "aboutControl1";
-            this.aboutControl1.Size = new System.Drawing.Size(258, 200);
-            this.aboutControl1.TabIndex = 1;
+            this.aboutControl.Location = new System.Drawing.Point(0, 0);
+            this.aboutControl.Name = "aboutControl";
+            this.aboutControl.Size = new System.Drawing.Size(258, 222);
+            this.aboutControl.TabIndex = 1;
             // 
             // SettingForm
             // 
@@ -115,6 +115,6 @@
         private System.Windows.Forms.Button changeSettingBtn;
         private System.Windows.Forms.Panel tabContentPanel;
         private SettingsControl settingsControl;
-        private AboutControl aboutControl1;
+        private AboutControl aboutControl;
     }
 }

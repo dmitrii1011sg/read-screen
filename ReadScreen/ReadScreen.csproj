@@ -74,12 +74,6 @@
     <Compile Include="Forms\CaptureCrop.Designer.cs">
       <DependentUpon>CaptureCrop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CaptureScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CaptureScreen.Designer.cs">
-      <DependentUpon>CaptureScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\CaptureScreenResult.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,9 +107,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CaptureCrop.resx">
       <DependentUpon>CaptureCrop.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CaptureScreen.resx">
-      <DependentUpon>CaptureScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CaptureScreenResult.resx">
       <DependentUpon>CaptureScreenResult.cs</DependentUpon>

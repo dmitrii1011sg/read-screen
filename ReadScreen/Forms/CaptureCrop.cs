@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ReadScreen
@@ -15,9 +8,7 @@ namespace ReadScreen
     public partial class CaptureCrop : Form
     {
         private Pen selectPen;
-
         private Point startPoint;
-        
         private bool selectDrawing = false;
 
         public CaptureCrop()
@@ -43,11 +34,11 @@ namespace ReadScreen
         {
             if (e.Button == MouseButtons.Left)
             {
-                this.startPoint = e.Location;
-                this.selectDrawing = true;
-                this.pictureArea.Visible = true;
+                startPoint = e.Location;
+                selectDrawing = true;
 
-                this.pictureArea.Location = startPoint;
+                pictureArea.Visible = true;
+                pictureArea.Location = startPoint;
             }
         }
 
@@ -55,8 +46,8 @@ namespace ReadScreen
         {
             if (!selectDrawing) return;
 
-            pictureArea.Location = this.GetStartPointFromPoints(e.Location, startPoint);
-            pictureArea.Size = this.GetSizeFromPoints(e.Location, startPoint);
+            pictureArea.Location = GetStartPointFromPoints(e.Location, startPoint);
+            pictureArea.Size = GetSizeFromPoints(e.Location, startPoint);
         }
 
         private Size GetSizeFromPoints(Point pointStart, Point point)
@@ -86,7 +77,7 @@ namespace ReadScreen
                 selectDrawing = false;
                 Hide();
                 
-                Size resolution = this.GetSizeFromPoints(startPoint, e.Location);
+                Size resolution = GetSizeFromPoints(startPoint, e.Location);
                 Bitmap bmpScreenshot = new Bitmap(resolution.Width, resolution.Height, PixelFormat.Format32bppArgb);
                 Graphics gfxScreenshot = Graphics.FromImage(bmpScreenshot);
                 gfxScreenshot.CopyFromScreen(startPoint.X, startPoint.Y, 0, 0, resolution, CopyPixelOperation.SourceCopy);
@@ -94,10 +85,7 @@ namespace ReadScreen
                 CaptureScreenResult captureResult = new CaptureScreenResult((Image)bmpScreenshot);
                 captureResult.Show();
             }
-            else if (e.Button == MouseButtons.Right)
-            {
-                Close();
-            }
+            else if (e.Button == MouseButtons.Right) Close();
         }
 
         private void pictureArea_Paint(object sender, PaintEventArgs e)

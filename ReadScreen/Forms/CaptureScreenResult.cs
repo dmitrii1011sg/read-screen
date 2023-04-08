@@ -9,15 +9,10 @@ namespace ReadScreen
 
     public partial class CaptureScreenResult : Form
     {
-        /// <summary>
-        ///  Tesseract param
-        /// </summary>
         private Bitmap screenshotBitmap;
         private Pix screenshotPix;
         private Page page;
         private string pageText;
-
-        private ReadScreenUtils Utils = new ReadScreenUtils();
 
         private TesseractEngine engine;
         private static readonly BitmapToPixConverter bitmapConverter = new BitmapToPixConverter();
@@ -45,17 +40,17 @@ namespace ReadScreen
 
         private void saveImage_Click(object sender, EventArgs e)
         {
-            Utils.SaveImage(screenshotBox.Image);
+            ReadScreenUtils.SaveImage(screenshotBox.Image);
         }
 
         private void copyImage_Click(object sender, EventArgs e)
         {
-            Utils.CopyImageToClipcoard(screenshotBox.Image);
+            ReadScreenUtils.CopyImageToClipcoard(screenshotBox.Image);
         }
 
         private void copyText_Click(object sender, EventArgs e)
         {
-            Utils.CopyTextToClipboard(resultText.Text);
+            ReadScreenUtils.CopyTextToClipboard(resultText.Text);
         }
 
         private void quitBtn_Click(object sender, EventArgs e)
