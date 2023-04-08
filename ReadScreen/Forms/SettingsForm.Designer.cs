@@ -28,88 +28,93 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.settingsBox = new System.Windows.Forms.GroupBox();
-            this.doneBtn = new System.Windows.Forms.Button();
-            this.copyClipboardCheckBox = new System.Windows.Forms.CheckBox();
-            this.otherGroup = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.settingsBox.SuspendLayout();
-            this.otherGroup.SuspendLayout();
+            this.tabControlPanel = new System.Windows.Forms.Panel();
+            this.changeAboutBtn = new System.Windows.Forms.Button();
+            this.changeSettingBtn = new System.Windows.Forms.Button();
+            this.tabContentPanel = new System.Windows.Forms.Panel();
+            this.settingsControl = new ReadScreen.SettingsControl();
+            this.aboutControl1 = new ReadScreen.AboutControl();
+            this.tabControlPanel.SuspendLayout();
+            this.tabContentPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // settingsBox
+            // tabControlPanel
             // 
-            this.settingsBox.Controls.Add(this.doneBtn);
-            this.settingsBox.Controls.Add(this.copyClipboardCheckBox);
-            this.settingsBox.Location = new System.Drawing.Point(12, 12);
-            this.settingsBox.Name = "settingsBox";
-            this.settingsBox.Size = new System.Drawing.Size(274, 122);
-            this.settingsBox.TabIndex = 0;
-            this.settingsBox.TabStop = false;
-            this.settingsBox.Text = "Settings";
+            this.tabControlPanel.Controls.Add(this.changeAboutBtn);
+            this.tabControlPanel.Controls.Add(this.changeSettingBtn);
+            this.tabControlPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tabControlPanel.Location = new System.Drawing.Point(0, 0);
+            this.tabControlPanel.Name = "tabControlPanel";
+            this.tabControlPanel.Size = new System.Drawing.Size(160, 221);
+            this.tabControlPanel.TabIndex = 0;
             // 
-            // doneBtn
+            // changeAboutBtn
             // 
-            this.doneBtn.Location = new System.Drawing.Point(193, 93);
-            this.doneBtn.Name = "doneBtn";
-            this.doneBtn.Size = new System.Drawing.Size(75, 23);
-            this.doneBtn.TabIndex = 1;
-            this.doneBtn.Text = "Done";
-            this.doneBtn.UseVisualStyleBackColor = true;
+            this.changeAboutBtn.Location = new System.Drawing.Point(12, 56);
+            this.changeAboutBtn.Name = "changeAboutBtn";
+            this.changeAboutBtn.Size = new System.Drawing.Size(142, 38);
+            this.changeAboutBtn.TabIndex = 1;
+            this.changeAboutBtn.Text = "About";
+            this.changeAboutBtn.UseVisualStyleBackColor = true;
+            this.changeAboutBtn.Click += new System.EventHandler(this.changeAboutBtn_Click);
             // 
-            // copyClipboardCheckBox
+            // changeSettingBtn
             // 
-            this.copyClipboardCheckBox.AutoSize = true;
-            this.copyClipboardCheckBox.Location = new System.Drawing.Point(6, 58);
-            this.copyClipboardCheckBox.Name = "copyClipboardCheckBox";
-            this.copyClipboardCheckBox.Size = new System.Drawing.Size(111, 17);
-            this.copyClipboardCheckBox.TabIndex = 0;
-            this.copyClipboardCheckBox.Text = "Copy on clipboard";
-            this.copyClipboardCheckBox.UseVisualStyleBackColor = true;
+            this.changeSettingBtn.Location = new System.Drawing.Point(13, 13);
+            this.changeSettingBtn.Name = "changeSettingBtn";
+            this.changeSettingBtn.Size = new System.Drawing.Size(141, 37);
+            this.changeSettingBtn.TabIndex = 0;
+            this.changeSettingBtn.Text = "Settings";
+            this.changeSettingBtn.UseVisualStyleBackColor = true;
+            this.changeSettingBtn.Click += new System.EventHandler(this.changeSettingBtn_Click);
             // 
-            // otherGroup
+            // tabContentPanel
             // 
-            this.otherGroup.Controls.Add(this.label1);
-            this.otherGroup.Location = new System.Drawing.Point(12, 140);
-            this.otherGroup.Name = "otherGroup";
-            this.otherGroup.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.otherGroup.Size = new System.Drawing.Size(274, 120);
-            this.otherGroup.TabIndex = 1;
-            this.otherGroup.TabStop = false;
-            this.otherGroup.Text = "...";
+            this.tabContentPanel.Controls.Add(this.settingsControl);
+            this.tabContentPanel.Controls.Add(this.aboutControl1);
+            this.tabContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabContentPanel.Location = new System.Drawing.Point(160, 0);
+            this.tabContentPanel.Name = "tabContentPanel";
+            this.tabContentPanel.Size = new System.Drawing.Size(250, 221);
+            this.tabContentPanel.TabIndex = 1;
             // 
-            // label1
+            // settingsControl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "About prg";
+            this.settingsControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.settingsControl.Location = new System.Drawing.Point(0, 0);
+            this.settingsControl.Name = "settingsControl";
+            this.settingsControl.Size = new System.Drawing.Size(250, 221);
+            this.settingsControl.TabIndex = 0;
+            // 
+            // aboutControl1
+            // 
+            this.aboutControl1.Location = new System.Drawing.Point(3, 3);
+            this.aboutControl1.Name = "aboutControl1";
+            this.aboutControl1.Size = new System.Drawing.Size(258, 200);
+            this.aboutControl1.TabIndex = 1;
             // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 272);
-            this.Controls.Add(this.otherGroup);
-            this.Controls.Add(this.settingsBox);
+            this.ClientSize = new System.Drawing.Size(410, 221);
+            this.Controls.Add(this.tabContentPanel);
+            this.Controls.Add(this.tabControlPanel);
             this.Name = "SettingForm";
             this.Text = "ReadScreen";
-            this.settingsBox.ResumeLayout(false);
-            this.settingsBox.PerformLayout();
-            this.otherGroup.ResumeLayout(false);
-            this.otherGroup.PerformLayout();
+            this.tabControlPanel.ResumeLayout(false);
+            this.tabContentPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox settingsBox;
-        private System.Windows.Forms.GroupBox otherGroup;
-        private System.Windows.Forms.Button doneBtn;
-        private System.Windows.Forms.CheckBox copyClipboardCheckBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel tabControlPanel;
+        private System.Windows.Forms.Button changeAboutBtn;
+        private System.Windows.Forms.Button changeSettingBtn;
+        private System.Windows.Forms.Panel tabContentPanel;
+        private SettingsControl settingsControl;
+        private AboutControl aboutControl1;
     }
 }
