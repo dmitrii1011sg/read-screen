@@ -30,18 +30,18 @@
         {
             this.panel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.closeBtnControl1 = new ReadScreen.CloseBtnControl();
             this.panelWorkspace = new System.Windows.Forms.Panel();
             this.panelResult = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.selectLangBtn = new System.Windows.Forms.Button();
+            this.saveImageBtn = new System.Windows.Forms.Button();
+            this.copyTextBtn = new System.Windows.Forms.Button();
+            this.copyImageBtn = new System.Windows.Forms.Button();
+            this.comboBoxSelectLang = new System.Windows.Forms.ComboBox();
+            this.labelSelectLang = new System.Windows.Forms.Label();
+            this.textBoxORC = new System.Windows.Forms.TextBox();
             this.panelImage = new System.Windows.Forms.Panel();
             this.screenshotBox = new System.Windows.Forms.PictureBox();
+            this.closeBtnControl1 = new ReadScreen.CloseBtnControl();
             this.panel.SuspendLayout();
             this.panelWorkspace.SuspendLayout();
             this.panelResult.SuspendLayout();
@@ -56,7 +56,7 @@
             this.panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(800, 31);
+            this.panel.Size = new System.Drawing.Size(838, 31);
             this.panel.TabIndex = 0;
             this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             this.panel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_MouseMove);
@@ -74,16 +74,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Result";
             // 
-            // closeBtnControl1
-            // 
-            this.closeBtnControl1.BackColor = System.Drawing.Color.Transparent;
-            this.closeBtnControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.closeBtnControl1.Location = new System.Drawing.Point(770, 0);
-            this.closeBtnControl1.Name = "closeBtnControl1";
-            this.closeBtnControl1.Size = new System.Drawing.Size(30, 31);
-            this.closeBtnControl1.TabIndex = 0;
-            this.closeBtnControl1.CloseButtonClick += new System.EventHandler(this.closeBtnControl_Click);
-            // 
             // panelWorkspace
             // 
             this.panelWorkspace.Controls.Add(this.panelImage);
@@ -91,114 +81,118 @@
             this.panelWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelWorkspace.Location = new System.Drawing.Point(0, 31);
             this.panelWorkspace.Name = "panelWorkspace";
-            this.panelWorkspace.Size = new System.Drawing.Size(800, 376);
+            this.panelWorkspace.Size = new System.Drawing.Size(838, 376);
             this.panelWorkspace.TabIndex = 1;
             // 
             // panelResult
             // 
-            this.panelResult.Controls.Add(this.button5);
-            this.panelResult.Controls.Add(this.button4);
-            this.panelResult.Controls.Add(this.button3);
-            this.panelResult.Controls.Add(this.button1);
-            this.panelResult.Controls.Add(this.comboBox1);
-            this.panelResult.Controls.Add(this.label1);
-            this.panelResult.Controls.Add(this.textBox1);
+            this.panelResult.Controls.Add(this.selectLangBtn);
+            this.panelResult.Controls.Add(this.saveImageBtn);
+            this.panelResult.Controls.Add(this.copyTextBtn);
+            this.panelResult.Controls.Add(this.copyImageBtn);
+            this.panelResult.Controls.Add(this.comboBoxSelectLang);
+            this.panelResult.Controls.Add(this.labelSelectLang);
+            this.panelResult.Controls.Add(this.textBoxORC);
             this.panelResult.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelResult.Location = new System.Drawing.Point(0, 0);
             this.panelResult.Name = "panelResult";
-            this.panelResult.Size = new System.Drawing.Size(268, 376);
+            this.panelResult.Size = new System.Drawing.Size(299, 376);
             this.panelResult.TabIndex = 0;
             // 
-            // button5
+            // selectLangBtn
             // 
-            this.button5.BackColor = System.Drawing.Color.DimGray;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(177, 308);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 26);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Done";
-            this.button5.UseVisualStyleBackColor = false;
+            this.selectLangBtn.BackColor = System.Drawing.Color.DimGray;
+            this.selectLangBtn.FlatAppearance.BorderSize = 0;
+            this.selectLangBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.selectLangBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.selectLangBtn.ForeColor = System.Drawing.Color.White;
+            this.selectLangBtn.Location = new System.Drawing.Point(201, 308);
+            this.selectLangBtn.Name = "selectLangBtn";
+            this.selectLangBtn.Size = new System.Drawing.Size(85, 26);
+            this.selectLangBtn.TabIndex = 7;
+            this.selectLangBtn.Text = "Done";
+            this.selectLangBtn.UseVisualStyleBackColor = false;
+            this.selectLangBtn.Click += new System.EventHandler(this.selectLangBtn_Click);
             // 
-            // button4
+            // saveImageBtn
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(147)))), ((int)(((byte)(86)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(96, 340);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 26);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Save img";
-            this.button4.UseVisualStyleBackColor = false;
+            this.saveImageBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(147)))), ((int)(((byte)(86)))));
+            this.saveImageBtn.FlatAppearance.BorderSize = 0;
+            this.saveImageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveImageBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveImageBtn.ForeColor = System.Drawing.Color.White;
+            this.saveImageBtn.Location = new System.Drawing.Point(107, 340);
+            this.saveImageBtn.Name = "saveImageBtn";
+            this.saveImageBtn.Size = new System.Drawing.Size(88, 26);
+            this.saveImageBtn.TabIndex = 6;
+            this.saveImageBtn.Text = "Save img";
+            this.saveImageBtn.UseVisualStyleBackColor = false;
+            this.saveImageBtn.Click += new System.EventHandler(this.saveImageBtn_Click);
             // 
-            // button3
+            // copyTextBtn
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(147)))), ((int)(((byte)(86)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(177, 340);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 26);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Copy text";
-            this.button3.UseVisualStyleBackColor = false;
+            this.copyTextBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(147)))), ((int)(((byte)(86)))));
+            this.copyTextBtn.FlatAppearance.BorderSize = 0;
+            this.copyTextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.copyTextBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.copyTextBtn.ForeColor = System.Drawing.Color.White;
+            this.copyTextBtn.Location = new System.Drawing.Point(201, 340);
+            this.copyTextBtn.Name = "copyTextBtn";
+            this.copyTextBtn.Size = new System.Drawing.Size(85, 26);
+            this.copyTextBtn.TabIndex = 5;
+            this.copyTextBtn.Text = "Copy text";
+            this.copyTextBtn.UseVisualStyleBackColor = false;
+            this.copyTextBtn.Click += new System.EventHandler(this.copyTextBtn_Click);
             // 
-            // button1
+            // copyImageBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(147)))), ((int)(((byte)(86)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(15, 340);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 26);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Copy img";
-            this.button1.UseVisualStyleBackColor = false;
+            this.copyImageBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(147)))), ((int)(((byte)(86)))));
+            this.copyImageBtn.FlatAppearance.BorderSize = 0;
+            this.copyImageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.copyImageBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.copyImageBtn.ForeColor = System.Drawing.Color.White;
+            this.copyImageBtn.Location = new System.Drawing.Point(15, 340);
+            this.copyImageBtn.Name = "copyImageBtn";
+            this.copyImageBtn.Size = new System.Drawing.Size(86, 26);
+            this.copyImageBtn.TabIndex = 3;
+            this.copyImageBtn.Text = "Copy img";
+            this.copyImageBtn.UseVisualStyleBackColor = false;
+            this.copyImageBtn.Click += new System.EventHandler(this.copyImageBtn_Click);
             // 
-            // comboBox1
+            // comboBoxSelectLang
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(96, 310);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(75, 21);
-            this.comboBox1.TabIndex = 2;
+            this.comboBoxSelectLang.FormattingEnabled = true;
+            this.comboBoxSelectLang.Location = new System.Drawing.Point(107, 310);
+            this.comboBoxSelectLang.Name = "comboBoxSelectLang";
+            this.comboBoxSelectLang.Size = new System.Drawing.Size(88, 21);
+            this.comboBoxSelectLang.TabIndex = 2;
             // 
-            // label1
+            // labelSelectLang
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(19, 313);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Select lang:";
+            this.labelSelectLang.AutoSize = true;
+            this.labelSelectLang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSelectLang.ForeColor = System.Drawing.Color.White;
+            this.labelSelectLang.Location = new System.Drawing.Point(22, 313);
+            this.labelSelectLang.Name = "labelSelectLang";
+            this.labelSelectLang.Size = new System.Drawing.Size(71, 15);
+            this.labelSelectLang.TabIndex = 1;
+            this.labelSelectLang.Text = "Select lang:";
             // 
-            // textBox1
+            // textBoxORC
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 6);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(237, 296);
-            this.textBox1.TabIndex = 0;
+            this.textBoxORC.Location = new System.Drawing.Point(15, 6);
+            this.textBoxORC.Multiline = true;
+            this.textBoxORC.Name = "textBoxORC";
+            this.textBoxORC.ReadOnly = true;
+            this.textBoxORC.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxORC.Size = new System.Drawing.Size(271, 296);
+            this.textBoxORC.TabIndex = 0;
             // 
             // panelImage
             // 
             this.panelImage.AutoScroll = true;
             this.panelImage.Controls.Add(this.screenshotBox);
-            this.panelImage.Location = new System.Drawing.Point(267, 6);
+            this.panelImage.Location = new System.Drawing.Point(305, 6);
             this.panelImage.Name = "panelImage";
             this.panelImage.Size = new System.Drawing.Size(530, 358);
             this.panelImage.TabIndex = 1;
@@ -211,18 +205,29 @@
             this.screenshotBox.TabIndex = 0;
             this.screenshotBox.TabStop = false;
             // 
+            // closeBtnControl1
+            // 
+            this.closeBtnControl1.BackColor = System.Drawing.Color.Transparent;
+            this.closeBtnControl1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.closeBtnControl1.Location = new System.Drawing.Point(808, 0);
+            this.closeBtnControl1.Name = "closeBtnControl1";
+            this.closeBtnControl1.Size = new System.Drawing.Size(30, 31);
+            this.closeBtnControl1.TabIndex = 0;
+            this.closeBtnControl1.CloseButtonClick += new System.EventHandler(this.closeBtnControl_Click);
+            // 
             // CaptureScreenORC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(37)))));
-            this.ClientSize = new System.Drawing.Size(800, 407);
+            this.ClientSize = new System.Drawing.Size(838, 407);
             this.Controls.Add(this.panelWorkspace);
             this.Controls.Add(this.panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CaptureScreenORC";
             this.Text = "CaptureScreenORCForm";
+            this.Load += new System.EventHandler(this.CaptureScreenORC_Load);
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
             this.panelWorkspace.ResumeLayout(false);
@@ -240,14 +245,14 @@
         private System.Windows.Forms.Panel panelWorkspace;
         private CloseBtnControl closeBtnControl1;
         private System.Windows.Forms.Panel panelResult;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label labelSelectLang;
+        private System.Windows.Forms.TextBox textBoxORC;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button selectLangBtn;
+        private System.Windows.Forms.Button saveImageBtn;
+        private System.Windows.Forms.Button copyTextBtn;
+        private System.Windows.Forms.Button copyImageBtn;
+        private System.Windows.Forms.ComboBox comboBoxSelectLang;
         private System.Windows.Forms.Panel panelImage;
         private System.Windows.Forms.PictureBox screenshotBox;
     }

@@ -14,7 +14,6 @@ namespace ReadScreen
         public static void SaveImage(Image image)
         {
             string localDate = DateTime.Now.ToString().Replace(".", "").Replace(":", "").Replace(" ", "");
-            MessageBox.Show(localDate);
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.CheckPathExists = true;
             sfd.FileName = "Capture-" + localDate.ToString();
