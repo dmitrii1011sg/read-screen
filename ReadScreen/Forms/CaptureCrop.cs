@@ -76,14 +76,14 @@ namespace ReadScreen
             {
                 selectDrawing = false;
                 Hide();
-                
-                Size resolution = GetSizeFromPoints(startPoint, e.Location);
-                Bitmap bmpScreenshot = new Bitmap(resolution.Width, resolution.Height, PixelFormat.Format32bppArgb);
-                Graphics gfxScreenshot = Graphics.FromImage(bmpScreenshot);
-                gfxScreenshot.CopyFromScreen(startPoint.X, startPoint.Y, 0, 0, resolution, CopyPixelOperation.SourceCopy);
 
-                // CaptureScreenResult captureResult = new CaptureScreenResult((Image)bmpScreenshot);
-                //captureResult.Show();
+                Point captureScreenPoint = GetStartPointFromPoints(e.Location, startPoint);
+                Size captureScreenSize = GetSizeFromPoints(e.Location, startPoint);
+                
+                Bitmap bmpScreenshot = new Bitmap(captureScreenSize.Width, captureScreenSize.Height, PixelFormat.Format32bppArgb);
+                Graphics gfxScreenshot = Graphics.FromImage(bmpScreenshot);
+                gfxScreenshot.CopyFromScreen(captureScreenPoint.X, captureScreenPoint.Y, 0, 0, captureScreenSize, CopyPixelOperation.SourceCopy);
+                
                 CaptureScreenORC captureOrc = new CaptureScreenORC((Image)bmpScreenshot);
                 captureOrc.Show();
             }
