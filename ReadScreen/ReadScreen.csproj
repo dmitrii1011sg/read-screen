@@ -61,6 +61,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\CaptureScreenORC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CaptureScreenORC.Designer.cs">
+      <DependentUpon>CaptureScreenORC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CloseBtnControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CaptureCrop.resx">
       <DependentUpon>CaptureCrop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CaptureScreenORC.resx">
+      <DependentUpon>CaptureScreenORC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CaptureScreenResult.resx">
       <DependentUpon>CaptureScreenResult.cs</DependentUpon>

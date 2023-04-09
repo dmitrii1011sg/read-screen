@@ -82,8 +82,10 @@ namespace ReadScreen
                 Graphics gfxScreenshot = Graphics.FromImage(bmpScreenshot);
                 gfxScreenshot.CopyFromScreen(startPoint.X, startPoint.Y, 0, 0, resolution, CopyPixelOperation.SourceCopy);
 
-                CaptureScreenResult captureResult = new CaptureScreenResult((Image)bmpScreenshot);
-                captureResult.Show();
+                // CaptureScreenResult captureResult = new CaptureScreenResult((Image)bmpScreenshot);
+                //captureResult.Show();
+                CaptureScreenORC captureOrc = new CaptureScreenORC((Image)bmpScreenshot);
+                captureOrc.Show();
             }
             else if (e.Button == MouseButtons.Right) Close();
         }
