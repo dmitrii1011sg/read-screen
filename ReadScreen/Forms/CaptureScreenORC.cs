@@ -13,6 +13,8 @@ namespace ReadScreen
 {
     public partial class CaptureScreenORC : Form
     {
+        private MainForm MainForm;
+
         private bool dragging = false;
         private Point startPoint = new Point(0, 0);
 
@@ -24,9 +26,11 @@ namespace ReadScreen
         private TesseractEngine engine;
         private static readonly BitmapToPixConverter bitmapConverter = new BitmapToPixConverter();
 
-        public CaptureScreenORC(Image screenshotImage)
+        public CaptureScreenORC(Image screenshotImage, MainForm form)
         {
             InitializeComponent();
+
+            MainForm = form;
 
             screenshotBitmap = (Bitmap)screenshotImage; 
 
@@ -95,6 +99,7 @@ namespace ReadScreen
         private void copyImageBtn_Click(object sender, EventArgs e)
         {
             ReadScreenUtils.CopyImageToClipcoard(screenshotBitmap);
+            MainForm.ViewNotification("Copy", "Coped image to clipboard");
         }
 
         private void saveImageBtn_Click(object sender, EventArgs e)
@@ -105,6 +110,7 @@ namespace ReadScreen
         private void copyTextBtn_Click(object sender, EventArgs e)
         {
             ReadScreenUtils.CopyTextToClipboard(pageText);
+            MainForm.ViewNotification("Copy", "Coped text to clipboard");
         }
     }
 }

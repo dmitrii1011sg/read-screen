@@ -2,8 +2,6 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using WK.Libraries.HotkeyListenerNS;
-
 
 
 namespace ReadScreen
@@ -13,9 +11,15 @@ namespace ReadScreen
         private bool dragging = false;
         private Point startPoint = new Point(0, 0);
 
-        public SettingForm()
+        private MainForm MainForm;
+
+        public SettingForm(MainForm mainForm)
         {
             InitializeComponent();
+
+            MainForm = mainForm;
+
+            settingsControl.SaveSettingsButtonClick += new EventHandler(saveSetting_Click);
         }
 
         private void emailLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -58,8 +62,13 @@ namespace ReadScreen
             if (dragging)
             {
                 Point point = PointToScreen(e.Location);
-                Location = new Point(point.X - this.startPoint.X, point.Y - this.startPoint.Y);
+                Location = new Point(point.X - startPoint.X, point.Y - startPoint.Y);
             }
+        }
+
+        private void saveSetting_Click(object sender, EventArgs e)
+        {
+            MainForm.ViewNotification("Save", "Settings saved");
         }
     }
 }

@@ -27,26 +27,36 @@ namespace ReadScreen
             iconMain.Visible = true;
             hotkeyListener.Add(CntrPrtScKey);
             hotkeyListener.HotkeyPressed += Hkl_HotkeyPressed;
+
+            Timer MyTimer = new Timer();
+            MyTimer.Interval = 1000;
+            MyTimer.Tick += new EventHandler(timer_Tick);
+            MyTimer.Start();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            Hide();
         }
 
         private void Hkl_HotkeyPressed(object sender, HotkeyEventArgs e)
         {
             if (e.Hotkey == CntrPrtScKey)
             {
-                CaptureCrop capture = new CaptureCrop();
+                CaptureCrop capture = new CaptureCrop(this);
                 capture.Show();
             }
         }
 
         private void settingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SettingForm form = new SettingForm();
+            SettingForm form = new SettingForm(this);
             form.Show();
         }
 
         private void captureScreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CaptureCrop capture = new CaptureCrop();
+            CaptureCrop capture = new CaptureCrop(this);
             capture.Show();
         }
 
@@ -64,6 +74,13 @@ namespace ReadScreen
                 e.Cancel = true;
                 Hide();
             }
+        }
+
+        public void ViewNotification(string title, string content, int timer = 10)
+        {
+            iconMain.BalloonTipTitle = title;
+            iconMain.BalloonTipText = content;
+            iconMain.ShowBalloonTip(timer);
         }
     }
 }

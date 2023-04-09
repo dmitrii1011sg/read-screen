@@ -13,6 +13,13 @@ namespace ReadScreen
 {
     public partial class SettingsControl : UserControl
     {
+
+        public event EventHandler SaveSettingsButtonClick
+        {
+            add { saveBtn.Click += value; }
+            remove { saveBtn.Click -= value; }
+        }
+
         public SettingsControl()
         {
             InitializeComponent();

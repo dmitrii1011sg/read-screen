@@ -7,13 +7,17 @@ namespace ReadScreen
 {
     public partial class CaptureCrop : Form
     {
+        private MainForm MainForm;
+
         private Pen selectPen;
         private Point startPoint;
         private bool selectDrawing = false;
 
-        public CaptureCrop()
+        public CaptureCrop(MainForm form)
         {
             InitializeComponent();
+
+            MainForm = form;
 
             Size = SystemInformation.VirtualScreen.Size;
             BackColor = Color.Black;
@@ -84,7 +88,7 @@ namespace ReadScreen
                 Graphics gfxScreenshot = Graphics.FromImage(bmpScreenshot);
                 gfxScreenshot.CopyFromScreen(captureScreenPoint.X, captureScreenPoint.Y, 0, 0, captureScreenSize, CopyPixelOperation.SourceCopy);
                 
-                CaptureScreenORC captureOrc = new CaptureScreenORC((Image)bmpScreenshot);
+                CaptureScreenORC captureOrc = new CaptureScreenORC((Image)bmpScreenshot, MainForm);
                 captureOrc.Show();
             }
             else if (e.Button == MouseButtons.Right) Close();
