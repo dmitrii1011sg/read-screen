@@ -18,7 +18,7 @@ namespace ReadScreen
             InitializeComponent();
 
             MainForm = mainForm;
-
+            Icon = Properties.Resources.icon;
             settingsControl.SaveSettingsButtonClick += new EventHandler(saveSetting_Click);
         }
 

@@ -86,12 +86,6 @@
     <Compile Include="Forms\CaptureCrop.Designer.cs">
       <DependentUpon>CaptureCrop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CaptureScreenResult.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CaptureScreenResult.Designer.cs">
-      <DependentUpon>CaptureScreenResult.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,9 +120,6 @@
     <EmbeddedResource Include="Forms\CaptureScreenORC.resx">
       <DependentUpon>CaptureScreenORC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CaptureScreenResult.resx">
-      <DependentUpon>CaptureScreenResult.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +134,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Controls\SettingsControl.resx">
       <DependentUpon>SettingsControl.cs</DependentUpon>
@@ -175,6 +167,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Resources\icon.ico" />
+    <None Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Tesseract.5.2.0\build\Tesseract.targets" Condition="Exists('..\packages\Tesseract.5.2.0\build\Tesseract.targets')" />

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tesseract;
 
@@ -32,12 +26,14 @@ namespace ReadScreen
 
             MainForm = form;
 
+            Icon = Properties.Resources.icon;
+
             screenshotBitmap = (Bitmap)screenshotImage; 
 
             screenshotBox.SizeMode = PictureBoxSizeMode.AutoSize;
             screenshotBox.Image = screenshotImage;
 
-            textBoxORC.Text = "Orc text is not implements";
+            textBoxORC.Text = "Ocr text is not implements";
 
             comboBoxSelectLang.DataSource = Constance.ComboxItemsLang;
             comboBoxSelectLang.ValueMember = "Id";
@@ -56,13 +52,8 @@ namespace ReadScreen
         {
             textBoxORC.Clear();
             page = engine.Process(screenshotPix);
-            pageText = page.GetText();
-            foreach (string line in pageText.Split('\n'))
-            {
-                textBoxORC.AppendText("\r\n"+line);
-            }
-            // textBoxORC.Text = pageText.Length > 0 ? pageText : "Page Empty.";
-            // textBoxORC.AppendText(pageText.Length > 0 ? pageText : "Page Empty.");
+            pageText = page.GetText().Trim(Environment.NewLine.ToCharArray()).Trim();
+            foreach (string line in pageText.Split('\n')) textBoxORC.AppendText("\r\n"+line);
         }
 
         private void closeBtnControl_Click(object sender, EventArgs e)
@@ -93,6 +84,7 @@ namespace ReadScreen
         private void selectLangBtn_Click(object sender, EventArgs e)
         {
             engine = new TesseractEngine(@"./tessdata", comboBoxSelectLang.SelectedValue.ToString(), EngineMode.Default);
+            engine.SetVariable("tessedit_char_blacklist", Constance.ignoreChars);
             UpdateTesseractText(); 
         }
 

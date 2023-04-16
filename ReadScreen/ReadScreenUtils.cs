@@ -1,10 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ReadScreen
@@ -38,7 +34,7 @@ namespace ReadScreen
         {
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
             {
-                key.SetValue("ReadScreen", "\"" + Application.ExecutablePath + "\"");
+                key.SetValue(Constance.nameApplication, "\"" + Application.ExecutablePath + "\"");
             }
         }
 
@@ -46,7 +42,7 @@ namespace ReadScreen
         {
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
             {
-                key.DeleteValue("ReadScreen", false);
+                key.DeleteValue(Constance.nameApplication, false);
             }
         }
     }

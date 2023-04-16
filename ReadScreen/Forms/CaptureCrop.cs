@@ -18,6 +18,8 @@ namespace ReadScreen
             InitializeComponent();
 
             MainForm = form;
+            
+            Icon = Properties.Resources.icon;
 
             Size = SystemInformation.VirtualScreen.Size;
             BackColor = Color.Black;

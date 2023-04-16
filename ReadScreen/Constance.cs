@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace ReadScreen
 {
     class Constance
     {
+        public static readonly string nameApplication = "ReadScreen";
+
         public static readonly ComboItemLang[] ComboxItemsLang = new ComboItemLang[] {
             new ComboItemLang{ Id = "rus", Lang = "Russian" },
             new ComboItemLang{ Id = "en", Lang = "English" }
         };
+
+        public static readonly string ignoreChars = "|®©";
 
         public static readonly string developerEmail = "mailto:dmitrii1011sg@gmail.com";
     }

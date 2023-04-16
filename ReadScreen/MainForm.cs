@@ -16,10 +16,19 @@ namespace ReadScreen
         internal static HotkeyListener hotkeyListener = new HotkeyListener();
         internal static Hotkey CntrPrtScKey = new Hotkey(Keys.Control, Keys.PrintScreen);
 
+        private Timer delayTimer;
+
         public MainForm()
         {
             InitializeComponent();
-            this.ShowInTaskbar = false;
+            ShowInTaskbar = false;
+
+            pictureBox1.Image = Properties.Resources.logo;
+
+            iconMain.Icon = Properties.Resources.icon;
+            iconMain.Text = Constance.nameApplication;
+            iconMain.BalloonTipTitle = Constance.nameApplication;
+            iconMain.BalloonTipText = Constance.nameApplication;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -28,15 +37,17 @@ namespace ReadScreen
             hotkeyListener.Add(CntrPrtScKey);
             hotkeyListener.HotkeyPressed += Hkl_HotkeyPressed;
 
-            Timer MyTimer = new Timer();
-            MyTimer.Interval = 1000;
-            MyTimer.Tick += new EventHandler(timer_Tick);
-            MyTimer.Start();
+            delayTimer = new Timer();
+            delayTimer.Interval = 1000;
+            delayTimer.Tick += new EventHandler(timer_Tick);
+            delayTimer.Start();
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
             Hide();
+            ViewNotification($"{Constance.nameApplication} started", "Press Ctrl+PrtSc for capture screen");
+            delayTimer.Stop();
         }
 
         private void Hkl_HotkeyPressed(object sender, HotkeyEventArgs e)
@@ -81,6 +92,15 @@ namespace ReadScreen
             iconMain.BalloonTipTitle = title;
             iconMain.BalloonTipText = content;
             iconMain.ShowBalloonTip(timer);
+        }
+
+        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            iconMain.Icon.Dispose();
+            iconMain.Dispose();
+            hotkeyListener.RemoveAll();
+            System.Diagnostics.Process.Start(Application.ExecutablePath);
+            Application.Exit();
         }
     }
 }
